@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export type DieProps = {
     value: number;
 }
@@ -11,6 +13,13 @@ export default function Die({ value }: DieProps ) {
         5: <div className="grid grid-cols-3 items-center justify-items-center h-full"><span className="bg-stone-800 rounded-full w-2 h-2" /><span className="bg-stone-800 rounded-full w-2 h-2 col-start-3" /><span className="bg-stone-800 rounded-full w-2 h-2 row-start-2 col-start-2" /><span className="bg-stone-800 rounded-full w-2 h-2 row-start-3" /><span className="bg-stone-800 rounded-full w-2 h-2 col-start-3 row-start-3" /></div>,
         6: <div className="grid grid-cols-3 items-center justify-items-center h-full"><span className="bg-stone-800 rounded-full w-2 h-2" /><span className="bg-stone-800 rounded-full w-2 h-2 col-start-3" /><span className="bg-stone-800 rounded-full w-2 h-2" /><span className="bg-stone-800 rounded-full w-2 h-2 col-start-3" /><span className="bg-stone-800 rounded-full w-2 h-2" /><span className="bg-stone-800 rounded-full w-2 h-2 col-start-3" /></div>,
     }
-    
-    return <div className="border-2 border-solid border-stone-500 w-12 h-12 p-1 rounded-sm">{faces[value]}</div>
+
+    return (
+        <motion.div 
+            className="border-2 border-solid border-stone-500 w-12 h-12 p-1 rounded-sm die"
+            layout
+        >
+            {faces[value]}
+        </motion.div>
+    )
 }
