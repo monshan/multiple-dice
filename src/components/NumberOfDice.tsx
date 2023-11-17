@@ -1,4 +1,5 @@
 import { ChangeEventHandler, useState } from "react";
+import { motion } from "framer-motion";
 import generateRandomNumber from "@/utils/generateRandomNumber";
 
 interface NumberOfDiceProps {
@@ -16,12 +17,17 @@ export default function NumberOfDice({ setDiceValues }: NumberOfDiceProps) {
     };
 
     return (
-        <div className="flex flex-col gap-4">
-            <h1>Number of Dice</h1>
+        <div className="flex flex-col gap-4 pt-18">
+            <h1 className="text-5xl">Number of Dice</h1>
             <input type="number" min="1" max="99" defaultValue={1} className="border-solid border-2 border-stone-500 p-1" 
                 onChange={numberOfDiceHandler} 
             />
-            <button onClick={() => setDiceValues(formData)} className="bg-stone-200">Roll</button>
+            <motion.button 
+                onClick={() => setDiceValues(formData)} 
+                whileHover={{ scale: 1.05, boxShadow: "0px 0px 18px 0px #dc2626" }}
+                className="p-1 rounded-md bg-gradient-to-r from-red-600 to-amber-500 text-white font-medium">
+                    Roll
+            </motion.button>
         </div>
     )
 }
