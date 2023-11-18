@@ -17,8 +17,8 @@ export default function NumberOfDice({ setDiceValues }: NumberOfDiceProps) {
     };
 
     return (
-        <div className="flex flex-col gap-4 pt-18">
-            <h1 className="text-5xl">Number of Dice</h1>
+        <div className="flex flex-col gap-4 pt-18 px-4">
+            <h1 className="text-2xl xl:text-5xl font-semibold">Number of Dice</h1>
             <input type="number" min="1" max="99" defaultValue={inputVal} onChange={(e) => setInputVal(e.target.valueAsNumber)} className="border-solid border-2 border-stone-500 p-1" />
             <motion.button 
                 onClick={() => numberOfDiceHandler()} 
